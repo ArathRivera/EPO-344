@@ -6,164 +6,120 @@
     <title>Reinscripción de Alumnos</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
+            font-family: Arial, sans-serif;
         }
-        #menu {
+        .menu {
             background-color: #3498db;
             padding: 20px;
-            color: white;
             text-align: center;
-            position: relative;
         }
-        #logo-left, #logo-right {
-            position: absolute;
-            top: 20px;
-            width: 100px;
+        .titulo {
+            font-size: 24px;
+            color: #fff;
         }
-        #logo-left {
-            left: 20px;
+        .rectangulo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #3498db;
+            margin: 10px auto;
+            max-width: 800px;
         }
-        #logo-right {
-            right: 20px;
-        }
-        #main-content {
-            padding: 20px;
-        }
-        .input-group {
-            margin-bottom: 10px;
-        }
-        #btn-next {
-            background-color: #2ecc71;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-        }
-        #resultado {
-            display: none;
-            padding: 20px;
+        .datos-input {
             margin-top: 20px;
-            border-radius: 5px;
         }
-        .exito {
-            background-color: #2ecc71;
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            box-sizing: border-box;
         }
-        .fallo {
-            background-color: #e74c3c;
+        .boton-finalizar {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
-    <div id="menu">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAqePK5LRFpUQk8kMrpT2ZCBZAouqmwtRc3dY_Wgf56w&s" alt="Logo Izquierdo" id="logo-left">
-        <h1>ESCUELA PREPARATORIA OFICIAL 344</h1>
-        <h2>“MARTIRES DE 1968”</h2>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAqePK5LRFpUQk8kMrpT2ZCBZAouqmwtRc3dY_Wgf56w&s" alt="Logo Derecho" id="logo-right">
-        <p>C.C.T. 15EBH0549B TURNO VESPERTINO</p>
-        <div class="input-group">
-            <label for="curp">CURP:</label>
-            <input type="text" id="curp">
+
+<div class="menu">
+    <div class="rectangulo">
+        <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAqePK5LRFpUQk8kMrpT2ZCBZAouqmwtRc3dY_Wgf56w&s" alt="Imagen Izquierda" width="50">
+            <span class="titulo">ESCUELA PREPARATORIA OFICIAL 344</span><br>
+            <span class="titulo">"MARTIRES DE 1968"</span><br>
+            <span>C.C.T. 15EBH0549B TURNO VESPERTINO</span>
         </div>
-        <div class="input-group">
-            <label for="email">Correo electrónico:</label>
-            <input type="email" id="email">
+        <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAqePK5LRFpUQk8kMrpT2ZCBZAouqmwtRc3dY_Wgf56w&s" alt="Imagen Derecha" width="50">
         </div>
-        <button id="btn-next">Siguiente</button>
     </div>
-    <div id="main-content">
-        <!-- Aquí va el contenido de la siguiente página -->
+    <div class="datos-input">
+        <input type="text" placeholder="CURP">
+        <input type="text" placeholder="Correo electrónico">
     </div>
-    <script>
-        document.getElementById("btn-next").addEventListener("click", function() {
-            var curp = document.getElementById("curp").value;
-            var email = document.getElementById("email").value;
-            
-            if (curp.length === 18 && email.includes("@")) {
-                // Mostrar la siguiente parte de la página
-                document.getElementById("main-content").innerHTML = `
-                    <h2>Datos del alumno</h2>
-                    <label for="fecha">Fecha:</label>
-                    <input type="text" id="fecha" placeholder="Escribe la fecha"><br>
-                    <div class="input-group">
-                        <label for="semestre">Semestre:</label>
-                        <input type="text" id="semestre">
-                    </div>
-                    <div class="input-group">
-                        <label for="grupo">Grupo:</label>
-                        <input type="text" id="grupo">
-                    </div>
-                    <div class="input-group">
-                        <label for="apellido-paterno">Apellido Paterno:</label>
-                        <input type="text" id="apellido-paterno">
-                    </div>
-                    <div class="input-group">
-                        <label for="apellido-materno">Apellido Materno:</label>
-                        <input type="text" id="apellido-materno">
-                    </div>
-                    <div class="input-group">
-                        <label for="nombres">Nombres:</label>
-                        <input type="text" id="nombres">
-                    </div>
-                    <h2>Domicilio</h2>
-                    <div class="input-group">
-                        <label for="municipio">Municipio:</label>
-                        <input type="text" id="municipio">
-                    </div>
-                    <div class="input-group">
-                        <label for="codigo-postal">Código Postal:</label>
-                        <input type="text" id="codigo-postal">
-                    </div>
-                    <div class="input-group">
-                        <label for="localidad">Localidad:</label>
-                        <input type="text" id="localidad">
-                    </div>
-                    <div class="input-group">
-                        <label for="calle">Calle:</label>
-                        <input type="text" id="calle">
-                    </div>
-                    <h2>Datos Padres de Familia o Tutor Legal</h2>
-                    <div class="input-group">
-                        <label for="nombre-madre">Nombre de la Madre:</label>
-                        <input type="text" id="nombre-madre">
-                    </div>
-                    <div class="input-group">
-                        <label for="telefono-madre">Teléfono Madre:</label>
-                        <input type="text" id="telefono-madre">
-                    </div>
-                    <div class="input-group">
-                        <label for="nombre-padre">Nombre del Padre:</label>
-                        <input type="text" id="nombre-padre">
-                    </div>
-                    <div class="input-group">
-                        <label for="telefono-padre">Teléfono Padre:</label>
-                        <input type="text" id="telefono-padre">
-                    </div>
-                    <button id="btn-finish">Finalizar</button>
-                `;
-            } else {
-                alert("Por favor completa los campos correctamente.");
+    <button id="boton-siguiente" class="boton-siguiente">Siguiente</button>
+</div>
+
+<div id="pagina-datos-alumno" style="display: none;">
+    <h2>Datos del alumno</h2>
+    <input type="text" placeholder="Fecha"><br>
+    <input type="text" placeholder="SEMESTRE"><br>
+    <input type="text" placeholder="GRUPO"><br>
+    <input type="text" placeholder="APELLIDO PATERNO"><br>
+    <input type="text" placeholder="APELLIDO MATERNO"><br>
+    <input type="text" placeholder="NOMBRE(S)">
+    <h2>Domicilio</h2>
+    <input type="text" placeholder="MUNICIPIO"><br>
+    <input type="text" placeholder="CÓDIGO POSTAL"><br>
+    <input type="text" placeholder="LOCALIDAD"><br>
+    <input type="text" placeholder="CALLE">
+    <h2>Datos Padres de Familia o Tutor Legal</h2>
+    <input type="text" placeholder="NOMBRE DE LA MADRE"><br>
+    <input type="text" placeholder="NÚMERO TELEFÓNICO"><br>
+    <input type="text" placeholder="NOMBRE DEL PADRE"><br>
+    <input type="text" placeholder="NÚMERO TELEFÓNICO">
+    <button id="boton-finalizar" class="boton-finalizar">Finalizar</button>
+</div>
+
+<script>
+    document.getElementById('boton-siguiente').addEventListener('click', function() {
+        var curp = document.querySelector('input[placeholder="CURP"]').value;
+        var email = document.querySelector('input[placeholder="Correo electrónico"]').value;
+
+        // Validación de CURP y correo electrónico
+        if (curp.length === 18 && email.includes('@')) {
+            document.getElementById('pagina-datos-alumno').style.display = 'block';
+        } else {
+            alert('Por favor, ingrese datos válidos para continuar.');
+        }
+    });
+
+    document.getElementById('boton-finalizar').addEventListener('click', function() {
+        var inputs = document.querySelectorAll('#pagina-datos-alumno input');
+        var completo = true;
+
+        // Verificar si todos los campos están completos
+        inputs.forEach(function(input) {
+            if (input.value === '') {
+                completo = false;
+                return;
             }
         });
-        
-        document.getElementById("main-content").addEventListener("click", function(event) {
-            if (event.target.id === "btn-finish") {
-                var inputs = document.querySelectorAll("input[type='text']");
-                var completed = true;
-                inputs.forEach(function(input) {
-                    if (input.value === "") {
-                        completed = false;
-                    }
-                });
-                if (completed) {
-                    alert("Reinscripción Completada");
-                    // Redireccionar al menú principal
-                } else {
-                    alert("Reinscripción Fallida");
-                }
-            }
-        });
-    </script>
+
+        // Mostrar mensaje de éxito o fracaso
+        if (completo) {
+            alert('Reinscripción Completada');
+            // Aquí debería redireccionar a la página principal
+        } else {
+            alert('Reinscripción Fallida');
+        }
+    });
+</script>
+
 </body>
 </html>
