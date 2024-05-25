@@ -20,7 +20,12 @@
             text-align: center;
             position: relative;
         }
-        .titulo {
+        .titulo-grande {
+            font-size: 28px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .titulo-mediano {
             font-size: 24px;
             color: #fff;
             margin-bottom: 10px;
@@ -30,12 +35,18 @@
             margin-bottom: 10px;
         }
         .imagen {
-            width: 50px;
-            height: 50px;
+            width: 100px;
+            height: 100px;
             margin: 0 10px;
         }
         input[type="text"] {
             width: 200px;
+            padding: 10px;
+            margin: 5px;
+            box-sizing: border-box;
+        }
+        select {
+            width: 220px;
             padding: 10px;
             margin: 5px;
             box-sizing: border-box;
@@ -60,9 +71,9 @@
 <div class="menu">
     <div class="rectangulo">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdl6dWgNGtlAZdwPRNSQrwk65FGVZtvw94LCIErokNGw&s" alt="Imagen Izquierda" class="imagen">
-        <span class="titulo">ESCUELA PREPARATORIA OFICIAL 344</span>
+        <span class="titulo-grande">ESCUELA PREPARATORIA OFICIAL 344</span>
         <br>
-        <span class="subtitulo">“MARTIRES DE 1968”</span>
+        <span class="titulo-mediano">“MARTIRES DE 1968”</span>
         <br>
         <span class="subtitulo">C.C.T. 15EBH0549B TURNO VESPERTINO</span>
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdl6dWgNGtlAZdwPRNSQrwk65FGVZtvw94LCIErokNGw&s" alt="Imagen Derecha" class="imagen">
@@ -75,27 +86,49 @@
 </div>
 
 <div class="otra-pagina" id="otra-pagina">
-    <h2>Datos del alumno</h2>
+    <h1 class="titulo-grande">Datos para la reinscripción del Alumn@</h1>
+    <h2 class="titulo-mediano">Datos del alumno</h2>
     <input type="date" placeholder="Fecha">
     <br>
-    <input type="text" placeholder="SEMESTRE">
+    <select name="semestre" id="semestre">
+        <option value="">Selecciona el semestre</option>
+        <option value="1RO">1RO</option>
+        <option value="2DO">2DO</option>
+        <option value="3ER">3ER</option>
+        <option value="4TO">4TO</option>
+        <option value="5TO">5TO</option>
+        <option value="6TO">6TO</option>
+    </select>
     <br>
-    <input type="text" placeholder="GRUPO">
+    <select name="grupo" id="grupo">
+        <option value="">Selecciona el grupo</option>
+        <option value="01">01</option>
+        <option value="02">02</option>
+    </select>
     <br>
     <input type="text" placeholder="APELLIDO PATERNO">
     <br>
     <input type="text" placeholder="APELLIDO MATERNO">
     <br>
     <input type="text" placeholder="NOMBRE(S)">
-    <h2>Domicilio</h2>
-    <input type="text" placeholder="MUNICIPIO">
+    <h2 class="titulo-mediano">Domicilio</h2>
+    <select name="municipio" id="municipio">
+        <option value="">Selecciona el municipio</option>
+        <option value="Ecatepec">Ecatepec</option>
+        <option value="Nezahualcóyotl">Nezahualcóyotl</option>
+        <option value="Toluca">Toluca</option>
+        <!-- Agrega más municipios según sea necesario -->
+    </select>
     <br>
-    <input type="text" placeholder="CÓDIGO POSTAL">
+    <select name="codigo-postal" id="codigo-postal">
+        <option value="">Selecciona el código postal</option>
+        <!-- Los códigos postales se llenarán automáticamente según el municipio seleccionado -->
+    </select>
     <br>
     <input type="text" placeholder="LOCALIDAD">
     <br>
     <input type="text" placeholder="CALLE">
-    <h2>Datos Padres de Familia o Tutor Legal</h2>
+    <h2 class="titulo-mediano">Datos Padres de Familia o Tutor Legal</h2>
     <input type="text" placeholder="NOMBRE DE LA MADRE">
     <br>
     <input type="text" placeholder="NÚMERO TELEFÓNICO">
@@ -108,6 +141,35 @@
 </div>
 
 <script>
+    // Función para cargar los códigos postales según el municipio seleccionado
+    document.getElementById('municipio').addEventListener('change', function() {
+        var municipio = this.value;
+        var codigoPostalSelect = document.getElementById('codigo-postal');
+
+        // Borra opciones anteriores
+        codigoPostalSelect.innerHTML = '<option value="">Selecciona el código postal</option>';
+
+        // Agrega nuevas opciones según el municipio seleccionado
+        switch(municipio) {
+            case 'Ecatepec':
+                codigoPostalSelect.innerHTML += '<option value="55000">55000</option>';
+                codigoPostalSelect.innerHTML += '<option value="55010">55010</option>';
+                // Agrega más códigos postales según sea necesario
+                break;
+            case 'Nezahualcóyotl':
+                codigoPostalSelect.innerHTML += '<option value="57700">57700</option>';
+                codigoPostalSelect.innerHTML += '<option value="57710">57710</option>';
+                // Agrega más códigos postales según sea necesario
+                break;
+            case 'Toluca':
+                codigoPostalSelect.innerHTML += '<option value="50000">50000</option>';
+                codigoPostalSelect.innerHTML += '<option value="50010">50010</option>';
+                // Agrega más códigos postales según sea necesario
+                break;
+            // Agrega más municipios y sus códigos postales aquí
+        }
+    });
+
     document.getElementById('boton-siguiente').addEventListener('click', function() {
         var curp = document.querySelector('input[placeholder="CURP"]').value;
         var email = document.querySelector('input[placeholder="Correo electrónico"]').value;
@@ -120,7 +182,7 @@
     });
 
     document.getElementById('boton-finalizar').addEventListener('click', function() {
-        var inputs = document.querySelectorAll('#otra-pagina input');
+        var inputs = document.querySelectorAll('#otra-pagina input, #otra-pagina select');
         var completo = true;
 
         inputs.forEach(function(input) {
