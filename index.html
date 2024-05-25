@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reinscripción Alumnos</title>
+    <title>Menú Principal</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,19 +17,74 @@
             padding: 20px;
         }
         #menu {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
+            background-color: blue;
+            color: white;
+            text-align: center;
+            padding: 20px;
         }
-        #main-content {
+        #menu img {
+            max-width: 100px;
+            margin: 5px;
+        }
+        #form-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        input[type="text"] {
+            width: 200px;
+            padding: 10px;
+            margin: 5px;
+        }
+        #submit-btn {
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>ESCUELA PREPARATORIA OFICIAL 344</h1>
+        <p>“MARTIRES DE 1968”</p>
+        <p>C.C.T. 15EBH0549B TURNO VESPERTINO</p>
+    </div>
+    <div id="menu">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAqePK5LRFpUQk8kMrpT2ZCBZAouqmwtRc3dY_Wgf56w&s" alt="Logo izquierdo">
+        <input type="text" placeholder="CURP">
+        <br>
+        <input type="text" placeholder="Correo electrónico">
+        <br>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAqePK5LRFpUQk8kMrpT2ZCBZAouqmwtRc3dY_Wgf56w&s" alt="Logo derecho">
+    </div>
+    <div id="form-container">
+        <button id="submit-btn">Siguiente</button>
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reinscripción Alumno</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        #header {
+            background-color: blue;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        #content {
             margin: 20px auto;
             width: 80%;
             text-align: center;
-        }
-        #form-content {
-            text-align: left;
-            margin-bottom: 20px;
         }
         input[type="text"], input[type="date"] {
             width: 100%;
@@ -47,20 +102,13 @@
 </head>
 <body>
     <div id="header">
+        <img src="ruta/logo_izquierdo.png" alt="Logo izquierdo">
+        <img src="ruta/logo_derecho.png" alt="Logo derecho">
         <h1>ESCUELA PREPARATORIA OFICIAL 344</h1>
         <p>“MARTIRES DE 1968”</p>
         <p>C.C.T. 15EBH0549B TURNO VESPERTINO</p>
     </div>
-    <div id="menu">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAqePK5LRFpUQk8kMrpT2ZCBZAouqmwtRc3dY_Wgf56w&s" alt="Logo izquierdo">
-        <div>
-            <input type="text" placeholder="CURP">
-            <br>
-            <input type="text" placeholder="Correo electrónico">
-        </div>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAqePK5LRFpUQk8kMrpT2ZCBZAouqmwtRc3dY_Wgf56w&s" alt="Logo derecho">
-    </div>
-    <div id="main-content">
+    <div id="content">
         <h2>Datos del alumno</h2>
         <div id="form-content">
             <input type="date" placeholder="Fecha">
@@ -119,3 +167,4 @@
     </script>
 </body>
 </html>
+
