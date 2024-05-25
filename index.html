@@ -38,14 +38,8 @@
             top: 50%;
             transform: translateY(-50%);
         }
-        input[type="text"] {
+        input[type="text"], select {
             width: 200px;
-            padding: 10px;
-            margin: 5px;
-            box-sizing: border-box;
-        }
-        select {
-            width: 220px;
             padding: 10px;
             margin: 5px;
             box-sizing: border-box;
@@ -62,6 +56,7 @@
             display: none;
             padding: 20px;
             text-align: center;
+            color: goldenrod;
         }
         .reinscripcion-completada, .reinscripcion-fallida {
             display: none;
@@ -76,10 +71,6 @@
         }
         .reinscripcion-fallida {
             background-color: #e74c3c;
-        }
-        .underline {
-            text-decoration: underline;
-            text-decoration-color: goldenrod;
         }
     </style>
 </head>
@@ -103,7 +94,7 @@
 </div>
 
 <div class="otra-pagina" id="otra-pagina">
-    <h1 class="titulo-grande underline">Datos para la reinscripción del Alumn@</h1>
+    <h1 class="titulo-grande">Datos para la reinscripción del Alumn@</h1>
     <h2 class="titulo-grande">Datos del alumno</h2>
     <input type="date" placeholder="Fecha">
     <br>
@@ -131,10 +122,14 @@
     <h2 class="titulo-grande">Domicilio</h2>
     <select name="municipio" id="municipio">
         <option value="">Selecciona el municipio</option>
-        <option value="Ecatepec">Ecatepec</option>
-        <option value="Nezahualcóyotl">Nezahualcóyotl</option>
-        <option value="Toluca">Toluca</option>
-        <!-- Agregar más municipios del Estado de México según sea necesario -->
+        <option value="Tlalmanalco">Tlalmanalco</option>
+        <option value="Cocotitlán">Cocotitlán</option>
+        <option value="Temamatla">Temamatla</option>
+        <option value="Tenango del Aire">Tenango del Aire</option>
+        <option value="Juchitepec">Juchitepec</option>
+        <option value="Valle de Chalco">Valle de Chalco</option>
+        <option value="Ixtapaluca">Ixtapaluca</option>
+        <option value="Amecameca">Amecameca</option>
     </select>
     <br>
     <select name="codigo-postal" id="codigo-postal">
@@ -145,13 +140,13 @@
     <br>
     <input type="text" placeholder="CALLE">
     <h2 class="titulo-grande">Datos Padres de Familia o Tutor Legal</h2>
-    <input type="text" placeholder="NOMBRE DE LA MADRE">
+    <input type="text" placeholder="NOMBRE COMPLETO DE LA MADRE">
     <br>
-    <input type="text" placeholder="NÚMERO TELEFÓNICO">
+    <input type="text" placeholder="NÚMERO TELEFÓNICO (10 dígitos)">
     <br>
-    <input type="text" placeholder="NOMBRE DEL PADRE">
+    <input type="text" placeholder="NOMBRE COMPLETO DEL PADRE">
     <br>
-    <input type="text" placeholder="NÚMERO TELEFÓNICO">
+    <input type="text" placeholder="NÚMERO TELEFÓNICO (10 dígitos)">
     <br>
     <button id="boton-finalizar" class="boton">Finalizar</button>
 </div>
@@ -170,19 +165,44 @@
 
         // Agrega nuevas opciones según el municipio seleccionado
         switch(municipio) {
-            case 'Ecatepec':
-                codigoPostalSelect.innerHTML += '<option value="55000">55000</option>';
-                codigoPostalSelect.innerHTML += '<option value="55010">55010</option>';
+            case 'Tlalmanalco':
+                codigoPostalSelect.innerHTML += '<option value="56700">56700</option>';
+                codigoPostalSelect.innerHTML += '<option value="56710">56710</option>';
                 // Agrega más códigos postales según sea necesario
                 break;
-            case 'Nezahualcóyotl':
-                codigoPostalSelect.innerHTML += '<option value="57700">57700</option>';
-                codigoPostalSelect.innerHTML += '<option value="57710">57710</option>';
+            case 'Cocotitlán':
+                codigoPostalSelect.innerHTML += '<option value="56900">56900</option>';
+                codigoPostalSelect.innerHTML += '<option value="56910">56910</option>';
                 // Agrega más códigos postales según sea necesario
                 break;
-            case 'Toluca':
-                codigoPostalSelect.innerHTML += '<option value="50000">50000</option>';
-                codigoPostalSelect.innerHTML += '<option value="50010">50010</option>';
+            case 'Temamatla':
+                codigoPostalSelect.innerHTML += '<option value="57000">57000</option>';
+                codigoPostalSelect.innerHTML += '<option value="57010">57010</option>';
+                // Agrega más códigos postales según sea necesario
+                break;
+            case 'Tenango del Aire':
+                codigoPostalSelect.innerHTML += '<option value="57200">57200</option>';
+                codigoPostalSelect.innerHTML += '<option value="57210">57210</option>';
+                // Agrega más códigos postales según sea necesario
+                break;
+            case 'Juchitepec':
+                codigoPostalSelect.innerHTML += '<option value="57300">57300</option>';
+                codigoPostalSelect.innerHTML += '<option value="57310">57310</option>';
+                // Agrega más códigos postales según sea necesario
+                break;
+            case 'Valle de Chalco':
+                codigoPostalSelect.innerHTML += '<option value="56600">56600</option>';
+                codigoPostalSelect.innerHTML += '<option value="56610">56610</option>';
+                // Agrega más códigos postales según sea necesario
+                break;
+            case 'Ixtapaluca':
+                codigoPostalSelect.innerHTML += '<option value="56500">56500</option>';
+                codigoPostalSelect.innerHTML += '<option value="56510">56510</option>';
+                // Agrega más códigos postales según sea necesario
+                break;
+            case 'Amecameca':
+                codigoPostalSelect.innerHTML += '<option value="56990">56990</option>';
+                codigoPostalSelect.innerHTML += '<option value="56995">56995</option>';
                 // Agrega más códigos postales según sea necesario
                 break;
             // Agrega más municipios y sus códigos postales aquí
