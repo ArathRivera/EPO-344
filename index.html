@@ -13,23 +13,26 @@
             background-color: #3498db;
             padding: 20px;
             text-align: center;
+        }
+        .rectangulo {
+            background-color: #3498db;
+            padding: 20px;
+            text-align: center;
             position: relative;
         }
         .titulo {
             font-size: 24px;
             color: #fff;
+            margin-bottom: 10px;
         }
-        .rectangulo {
-            background-color: #3498db;
-            padding: 10px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        .subtitulo {
+            color: #fff;
+            margin-bottom: 10px;
         }
         .imagen {
             width: 50px;
             height: 50px;
+            margin: 0 10px;
         }
         input[type="text"] {
             width: 200px;
@@ -38,9 +41,12 @@
             box-sizing: border-box;
         }
         .boton {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #2ecc71;
+            color: #fff;
+            border: none;
+            cursor: pointer;
         }
         .otra-pagina {
             display: none;
@@ -54,34 +60,50 @@
 <div class="menu">
     <div class="rectangulo">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdl6dWgNGtlAZdwPRNSQrwk65FGVZtvw94LCIErokNGw&s" alt="Imagen Izquierda" class="imagen">
-        <span class="titulo">ESCUELA PREPARATORIA OFICIAL 344</span><br>
-        <span>"MARTIRES DE 1968"</span><br>
-        <span>C.C.T. 15EBH0549B TURNO VESPERTINO</span>
+        <span class="titulo">ESCUELA PREPARATORIA OFICIAL 344</span>
+        <br>
+        <span class="subtitulo">“MARTIRES DE 1968”</span>
+        <br>
+        <span class="subtitulo">C.C.T. 15EBH0549B TURNO VESPERTINO</span>
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdl6dWgNGtlAZdwPRNSQrwk65FGVZtvw94LCIErokNGw&s" alt="Imagen Derecha" class="imagen">
     </div>
-    <input type="text" placeholder="CURP"><br>
-    <input type="text" placeholder="Correo electrónico"><br>
+    <input type="text" placeholder="CURP">
+    <br>
+    <input type="text" placeholder="Correo electrónico">
+    <br>
     <button id="boton-siguiente" class="boton">Siguiente</button>
 </div>
 
 <div class="otra-pagina" id="otra-pagina">
     <h2>Datos del alumno</h2>
-    <input type="text" placeholder="Fecha"><br>
-    <input type="text" placeholder="SEMESTRE"><br>
-    <input type="text" placeholder="GRUPO"><br>
-    <input type="text" placeholder="APELLIDO PATERNO"><br>
-    <input type="text" placeholder="APELLIDO MATERNO"><br>
+    <input type="date" placeholder="Fecha">
+    <br>
+    <input type="text" placeholder="SEMESTRE">
+    <br>
+    <input type="text" placeholder="GRUPO">
+    <br>
+    <input type="text" placeholder="APELLIDO PATERNO">
+    <br>
+    <input type="text" placeholder="APELLIDO MATERNO">
+    <br>
     <input type="text" placeholder="NOMBRE(S)">
     <h2>Domicilio</h2>
-    <input type="text" placeholder="MUNICIPIO"><br>
-    <input type="text" placeholder="CÓDIGO POSTAL"><br>
-    <input type="text" placeholder="LOCALIDAD"><br>
+    <input type="text" placeholder="MUNICIPIO">
+    <br>
+    <input type="text" placeholder="CÓDIGO POSTAL">
+    <br>
+    <input type="text" placeholder="LOCALIDAD">
+    <br>
     <input type="text" placeholder="CALLE">
     <h2>Datos Padres de Familia o Tutor Legal</h2>
-    <input type="text" placeholder="NOMBRE DE LA MADRE"><br>
-    <input type="text" placeholder="NÚMERO TELEFÓNICO"><br>
-    <input type="text" placeholder="NOMBRE DEL PADRE"><br>
+    <input type="text" placeholder="NOMBRE DE LA MADRE">
+    <br>
     <input type="text" placeholder="NÚMERO TELEFÓNICO">
+    <br>
+    <input type="text" placeholder="NOMBRE DEL PADRE">
+    <br>
+    <input type="text" placeholder="NÚMERO TELEFÓNICO">
+    <br>
     <button id="boton-finalizar" class="boton">Finalizar</button>
 </div>
 
@@ -110,7 +132,7 @@
 
         if (completo) {
             alert('Reinscripción Completada');
-            // Aquí debería redireccionar a la página principal
+            // Aquí debería implementarse la redirección al menú principal
         } else {
             alert('Reinscripción Fallida');
         }
