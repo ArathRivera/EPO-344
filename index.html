@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú Principal</title>
+    <title>Reinscripción de Alumnos</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -21,10 +21,14 @@
             color: white;
             text-align: center;
             padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         #menu img {
-            max-width: 100px;
-            margin: 5px;
+            width: 100px;
+            height: auto;
+            margin: 0 10px;
         }
         #form-container {
             text-align: center;
@@ -42,6 +46,9 @@
             border: none;
             cursor: pointer;
         }
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -52,111 +59,22 @@
     </div>
     <div id="menu">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAqePK5LRFpUQk8kMrpT2ZCBZAouqmwtRc3dY_Wgf56w&s" alt="Logo izquierdo">
-        <input type="text" placeholder="CURP">
+        <input type="text" id="curpInput" placeholder="CURP">
         <br>
-        <input type="text" placeholder="Correo electrónico">
+        <input type="text" id="emailInput" placeholder="Correo electrónico">
         <br>
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAqePK5LRFpUQk8kMrpT2ZCBZAouqmwtRc3dY_Wgf56w&s" alt="Logo derecho">
     </div>
-    <div id="form-container">
+    <div id="form-container" class="hidden">
         <button id="submit-btn">Siguiente</button>
     </div>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reinscripción Alumno</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        #header {
-            background-color: blue;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-        #content {
-            margin: 20px auto;
-            width: 80%;
-            text-align: center;
-        }
-        input[type="text"], input[type="date"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-        #reinscription-btn {
-            padding: 10px 20px;
-            background-color: green;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <div id="header">
-        <img src="ruta/logo_izquierdo.png" alt="Logo izquierdo">
-        <img src="ruta/logo_derecho.png" alt="Logo derecho">
-        <h1>ESCUELA PREPARATORIA OFICIAL 344</h1>
-        <p>“MARTIRES DE 1968”</p>
-        <p>C.C.T. 15EBH0549B TURNO VESPERTINO</p>
-    </div>
-    <div id="content">
-        <h2>Datos del alumno</h2>
-        <div id="form-content">
-            <input type="date" placeholder="Fecha">
-            <br>
-            <input type="text" placeholder="SEMESTRE">
-            <br>
-            <input type="text" placeholder="GRUPO">
-            <br>
-            <input type="text" placeholder="APELLIDO PATERNO">
-            <br>
-            <input type="text" placeholder="APELLIDO MATERNO">
-            <br>
-            <input type="text" placeholder="NOMBRE(S)">
-        </div>
-        <h2>Domicilio</h2>
-        <div id="form-content">
-            <input type="text" placeholder="MUNICIPIO">
-            <br>
-            <input type="text" placeholder="CÓDIGO POSTAL">
-            <br>
-            <input type="text" placeholder="LOCALIDAD">
-            <br>
-            <input type="text" placeholder="CALLE">
-        </div>
-        <h2>Datos Padres de Familia o Tutor Legal</h2>
-        <div id="form-content">
-            <input type="text" placeholder="NOMBRE DE LA MADRE">
-            <br>
-            <input type="text" placeholder="NÚMERO TELEFÓNICO">
-            <br>
-            <input type="text" placeholder="NOMBRE DEL PADRE">
-            <br>
-            <input type="text" placeholder="NÚMERO TELEFÓNICO">
-        </div>
-        <button id="reinscription-btn">Finalizar</button>
-    </div>
+
     <script>
-        document.getElementById('reinscription-btn').addEventListener('click', function() {
-            // Verificar si los campos están llenos
-            var inputs = document.querySelectorAll('input[type="text"]');
-            var filled = true;
-            inputs.forEach(function(input) {
-                if (input.value.trim() === '') {
-                    filled = false;
-                }
-            });
-            // Mostrar mensaje de éxito o falla
-            if (filled) {
+        document.getElementById('submit-btn').addEventListener('click', function() {
+            var curp = document.getElementById('curpInput').value.trim();
+            var email = document.getElementById('emailInput').value.trim();
+
+            if (curp.length >= 18 && email.includes('@')) {
                 alert('Reinscripción Completada');
                 // Redireccionar al menú principal
                 // window.location.href = 'menu_principal.html';
@@ -164,7 +82,27 @@
                 alert('Reinscripción Fallida');
             }
         });
+
+        // Mostrar el formulario cuando se llenen los campos de CURP y correo electrónico
+        document.getElementById('curpInput').addEventListener('input', function() {
+            toggleFormVisibility();
+        });
+
+        document.getElementById('emailInput').addEventListener('input', function() {
+            toggleFormVisibility();
+        });
+
+        function toggleFormVisibility() {
+            var curp = document.getElementById('curpInput').value.trim();
+            var email = document.getElementById('emailInput').value.trim();
+            var formContainer = document.getElementById('form-container');
+
+            if (curp.length >= 18 && email.includes('@')) {
+                formContainer.classList.remove('hidden');
+            } else {
+                formContainer.classList.add('hidden');
+            }
+        }
     </script>
 </body>
 </html>
-
