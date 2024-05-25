@@ -1,188 +1,150 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reinscripción de Alumnos</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        #header {
-            background-color: blue;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-        #menu {
-            background-color: blue;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        #menu img {
-            width: 100px;
-            height: auto;
-            margin: 0 10px;
-        }
-        #form-container {
-            text-align: center;
-            margin-top: 20px;
-        }
-        input[type="text"] {
-            width: 200px;
-            padding: 10px;
-            margin: 5px;
-        }
-        #submit-btn {
-            padding: 10px 20px;
-            background-color: green;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        .hidden {
-            display: none;
-        }
-        .container {
-            text-align: center;
-            margin-top: 20px;
-        }
-        h2 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-        input[type="text"], input[type="date"] {
-            width: 300px;
-            padding: 10px;
-            margin: 5px;
-        }
-        #finish-btn {
-            padding: 10px 20px;
-            background-color: green;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        /* Agregado estilo para las imágenes */
-        .left-image {
-            float: left;
-            margin-right: 10px;
-        }
-        .right-image {
-            float: right;
-            margin-left: 10px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reinscripción de Alumnos</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  #menu {
+    background-color: #3498db;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+  }
+  #formulario {
+    margin-top: 20px;
+    display: none;
+  }
+  .input-container {
+    margin-bottom: 10px;
+  }
+  #finalizar-btn {
+    display: none;
+  }
+  .mensaje {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+  }
+</style>
 </head>
 <body>
-    <div id="header">
-        <h1>ESCUELA PREPARATORIA OFICIAL 344</h1>
-        <p>“MARTIRES DE 1968”</p>
-        <p>C.C.T. 15EBH0549B TURNO VESPERTINO</p>
-    </div>
-    <div id="menu">
-        <!-- Imagen a la izquierda -->
-        <div class="left-image">
-            <img src="https://www.google.com/imgres?q=escudo%20de%20la%20unam&imgurl=https%3A%2F%2Fwww.unam.mx%2Fsites%2Fdefault%2Ffiles%2Fimages%2Funam.svg&imgrefurl=https%3A%2F%2Fwww.unam.mx%2Facerca-de-la-unam%2Fidentidad-unam%2Fescudo&docid=9MHSQInsjbYj2M&tbnid=OiLzZmkVCeiouM&vet=12ahUKEwjq27zm-qeGAxWUIUQIHZzfBSUQM3oECB4QAA..i&w=800&h=797&hcb=2&ved=2ahUKEwjq27zm-qeGAxWUIUQIHZzfBSUQM3oECB4QAA" alt="Logo izquierdo">
-        </div>
-        <input type="text" id="curpInput" placeholder="CURP">
-        <br>
-        <input type="text" id="emailInput" placeholder="Correo electrónico">
-        <br>
-        <!-- Imagen a la derecha -->
-        <div class="right-image">
-            <img src="https://www.google.com/imgres?q=escudo%20de%20la%20unam&imgurl=https%3A%2F%2Fwww.unam.mx%2Fsites%2Fdefault%2Ffiles%2Fimages%2Funam.svg&imgrefurl=https%3A%2F%2Fwww.unam.mx%2Facerca-de-la-unam%2Fidentidad-unam%2Fescudo&docid=9MHSQInsjbYj2M&tbnid=OiLzZmkVCeiouM&vet=12ahUKEwjq27zm-qeGAxWUIUQIHZzfBSUQM3oECB4QAA..i&w=800&h=797&hcb=2&ved=2ahUKEwjq27zm-qeGAxWUIUQIHZzfBSUQM3oECB4QAA" alt="Logo derecho">
-        </div>
-    </div>
-    <div id="form-container" class="hidden">
-        <div class="container">
-            <h2>Datos del alumno</h2>
-            <input type="date" id="dateInput" placeholder="Fecha">
-            <br>
-            <input type="text" id="semesterInput" placeholder="SEMESTRE">
-            <br>
-            <input type="text" id="groupInput" placeholder="GRUPO">
-            <br>
-            <input type="text" id="lastNameInput" placeholder="APELLIDO PATERNO">
-            <br>
-            <input type="text" id="secondLastNameInput" placeholder="APELLIDO MATERNO">
-            <br>
-            <input type="text" id="firstNameInput" placeholder="NOMBRE(S)">
-        </div>
-        <div class="container">
-            <h2>Domicilio</h2>
-            <input type="text" id="cityInput" placeholder="MUNICIPIO">
-            <br>
-            <input type="text" id="postalCodeInput" placeholder="CÓDIGO POSTAL">
-            <br>
-            <input type="text" id="locationInput" placeholder="LOCALIDAD">
-            <br>
-            <input type="text" id="streetInput" placeholder="CALLE">
-        </div>
-        <div class="container">
-            <h2>Datos Padres de Familia o Tutor Legal</h2>
-            <input type="text" id="motherNameInput" placeholder="NOMBRE DE LA MADRE">
-            <br>
-            <input type="text" id="motherPhoneInput" placeholder="NÚMERO TELEFÓNICO">
-            <br>
-            <input type="text" id="fatherNameInput" placeholder="NOMBRE DEL PADRE">
-            <br>
-            <input type="text" id="fatherPhoneInput" placeholder="NÚMERO TELEFÓNICO">
-        </div>
-        <button id="finish-btn">Finalizar</button>
-    </div>
+<!-- Menú Principal -->
+<div id="menu">
+  <div>
+    <h1>ESCUELA PREPARATORIA OFICIAL 344</h1>
+    <p>“MARTIRES DE 1968”</p>
+    <p>C.C.T. 15EBH0549B TURNO VESPERTINO</p>
+  </div>
+  <div class="input-container">
+    <input type="text" id="curp" placeholder="CURP">
+  </div>
+  <div class="input-container">
+    <input type="email" id="email" placeholder="Correo electrónico">
+  </div>
+  <button onclick="verificarDatos()">Continuar</button>
+</div>
 
-    <script>
-        document.getElementById('finish-btn').addEventListener('click', function() {
-            var semester = document.getElementById('semesterInput').value.trim();
-            var group = document.getElementById('groupInput').value.trim();
-            var lastName = document.getElementById('lastNameInput').value.trim();
-            var secondLastName = document.getElementById('secondLastNameInput').value.trim();
-            var firstName = document.getElementById('firstNameInput').value.trim();
-            var city = document.getElementById('cityInput').value.trim();
-            var postalCode = document.getElementById('postalCodeInput').value.trim();
-            var location = document.getElementById('locationInput').value.trim();
-            var street = document.getElementById('streetInput').value.trim();
-            var motherName = document.getElementById('motherNameInput').value.trim();
-            var motherPhone = document.getElementById('motherPhoneInput').value.trim();
-            var fatherName = document.getElementById('fatherNameInput').value.trim();
-            var fatherPhone = document.getElementById('fatherPhoneInput').value.trim();
+<!-- Formulario de Reinscripción -->
+<div id="formulario">
+  <h2>Datos del alumno</h2>
+  <div class="input-container">
+    <input type="date" id="fecha" placeholder="Fecha">
+  </div>
+  <div class="input-container">
+    <input type="text" id="semestre" placeholder="Semestre">
+  </div>
+  <div class="input-container">
+    <input type="text" id="grupo" placeholder="Grupo">
+  </div>
+  <div class="input-container">
+    <input type="text" id="apellido_paterno" placeholder="Apellido Paterno">
+  </div>
+  <div class="input-container">
+    <input type="text" id="apellido_materno" placeholder="Apellido Materno">
+  </div>
+  <div class="input-container">
+    <input type="text" id="nombres" placeholder="Nombres">
+  </div>
+  <h2>Domicilio</h2>
+  <div class="input-container">
+    <input type="text" id="municipio" placeholder="Municipio">
+  </div>
+  <div class="input-container">
+    <input type="text" id="codigo_postal" placeholder="Código Postal">
+  </div>
+  <div class="input-container">
+    <input type="text" id="localidad" placeholder="Localidad">
+  </div>
+  <div class="input-container">
+    <input type="text" id="calle" placeholder="Calle">
+  </div>
+  <h2>Datos Padres de Familia o Tutor Legal</h2>
+  <div class="input-container">
+    <input type="text" id="nombre_madre" placeholder="Nombre de la Madre">
+  </div>
+  <div class="input-container">
+    <input type="tel" id="telefono_madre" placeholder="Teléfono de la Madre">
+  </div>
+  <div class="input-container">
+    <input type="text" id="nombre_padre" placeholder="Nombre del Padre">
+  </div>
+  <div class="input-container">
+    <input type="tel" id="telefono_padre" placeholder="Teléfono del Padre">
+  </div>
+  <button onclick="finalizarReinscripcion()">Finalizar</button>
+</div>
 
-            if (semester && group && lastName && secondLastName && firstName && city && postalCode && location && street && motherName && motherPhone && fatherName && fatherPhone) {
-                alert('Reinscripción Completada');
-                // Redireccionar al menú principal
-                // window.location.href = 'menu_principal.html';
-            } else {
-                alert('Reinscripción Fallida');
-            }
-        });
+<!-- Mensajes -->
+<div id="mensaje-exito" class="mensaje">
+  <p>Reinscripción Completada</p>
+</div>
+<div id="mensaje-error" class="mensaje">
+  <p>Reinscripción Fallida</p>
+</div>
 
-        // Mostrar el formulario cuando se llenen los campos de CURP y correo electrónico
-        document.getElementById('curpInput').addEventListener('input', function() {
-            toggleFormVisibility();
-        });
+<script>
+function verificarDatos() {
+  var curp = document.getElementById("curp").value;
+  var email = document.getElementById("email").value;
 
-        document.getElementById('emailInput').addEventListener('input', function() {
-            toggleFormVisibility();
-        });
+  if (curp.length === 18 && email.includes("@")) {
+    document.getElementById("menu").style.display = "none";
+    document.getElementById("formulario").style.display = "block";
+  } else {
+    alert("Por favor, ingresa datos válidos para CURP y Correo electrónico.");
+  }
+}
 
-        function toggleFormVisibility() {
-            var curp = document.getElementById('curpInput').value.trim();
-            var email = document.getElementById('emailInput').value.trim();
-            var formContainer = document.getElementById('form-container');
+function finalizarReinscripcion() {
+  var inputs = document.querySelectorAll("#formulario input");
+  var completo = true;
 
-            if (curp.length >= 18 && email.includes('@')) {
-                formContainer.classList.remove('hidden');
-            } else {
-                formContainer.classList.add('hidden');
-            }
-        }
-    </script>
+  inputs.forEach(function(input) {
+    if (input.value === "") {
+      completo = false;
+      return;
+    }
+  });
+
+  if (completo) {
+    document.getElementById("formulario").style.display = "none";
+    document.getElementById("mensaje-exito").style.display = "block";
+    setTimeout(function() {
+      window.location.href = "#menu";
+      document.getElementById("menu").style.display = "block";
+      document.getElementById("mensaje-exito").style.display = "none";
+    }, 3000);
+  } else {
+    document.getElementById("mensaje-error").style.display = "block";
+  }
+}
+</script>
+
 </body>
 </html>
