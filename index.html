@@ -3,185 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reinscripción de Alumnos</title>
+    <title>Preparatoria Núm. Oficial 344 "Mártires 68"</title>
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #ccc; /* Fondo gris */
-        }
-        .menu {
-            background-color: #3498db; /* Rectángulo azul */
-            padding: 20px;
-            text-align: center;
-            position: relative;
-        }
-        .titulo {
-            font-size: 24px;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-        .subtitulo {
-            font-size: 18px;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-        .imagen {
-            width: 150px;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        input[type="text"] {
-            width: 200px;
-            padding: 10px;
-            margin: 5px;
-            box-sizing: border-box;
-        }
-        .boton {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #2ecc71; /* Verde */
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-        .otra-pagina {
-            display: none;
-            padding: 20px;
-            text-align: center;
-            color: black;
-        }
-        .reinscripcion-completada, .reinscripcion-fallida {
-            display: none;
-            font-size: 16px;
-            color: #fff;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            text-align: center;
-        }
-        .reinscripcion-completada {
-            background-color: #2ecc71; /* Verde */
-        }
-        .reinscripcion-fallida {
-            background-color: #e74c3c; /* Rojo */
-        }
+        /* Estilos CSS pueden ser añadidos aquí */
     </style>
 </head>
 <body>
+    <header>
+        <h1>Preparatoria Núm. Oficial 344 "Mártires 68"</h1>
+        <nav>
+            <ul>
+                <li><a href="#historia">Historia</a></li>
+                <li><a href="#docentes">Docentes</a></li>
+                <li><a href="#personal">Personal</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#limpieza-seguridad">Limpieza y Seguridad</a></li>
+                <li><a href="#uprez">UPREZ</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<div class="menu">
-    <div class="titulo">ESCUELA PREPARATORIA OFICIAL 344</div>
-    <div class="subtitulo">“MARTIRES DE 1968”</div>
-    <div class="subtitulo">C.C.T. 15EBH0549B TURNO VESPERTINO</div>
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdl6dWgNGtlAZdwPRNSQrwk65FGVZtvw94LCIErokNGw&s" alt="Imagen Izquierda" class="imagen" style="left: 10px;">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdl6dWgNGtlAZdwPRNSQrwk65FGVZtvw94LCIErokNGw&s" alt="Imagen Derecha" class="imagen" style="right: 10px;">
-    <input type="text" placeholder="CURP">
-    <br>
-    <input type="text" placeholder="Correo electrónico">
-    <br>
-    <button id="boton-siguiente" class="boton">Siguiente</button>
-</div>
+    <main>
+        <section id="historia">
+            <h2>Historia</h2>
+            <p>La Preparatoria Núm. Oficial 344 "Mártires 68" fue fundada en [Año de Fundación] por [Nombre del Fundador]. [Breve historia de la preparatoria].</p>
+            <!-- Aquí puedes añadir más información histórica -->
+        </section>
 
-<div class="otra-pagina" id="otra-pagina">
-    <h1 class="titulo">Datos para la reinscripción del Alumn@</h1>
-    <h2 class="titulo">Datos del alumno</h2>
-    <label for="fecha-nacimiento">Fecha de Nacimiento:</label>
-    <input type="date" id="fecha-nacimiento" placeholder="Fecha de Nacimiento">
-    <br>
-    <select name="semestre" id="semestre">
-        <option value="">Selecciona el semestre</option>
-        <option value="1RO">1RO</option>
-        <option value="2DO">2DO</option>
-        <option value="3ER">3ER</option>
-        <option value="4TO">4TO</option>
-        <option value="5TO">5TO</option>
-        <option value="6TO">6TO</option>
-    </select>
-    <br>
-    <select name="grupo" id="grupo">
-        <option value="">Selecciona el grupo</option>
-        <option value="01">01</option>
-        <option value="02">02</option>
-    </select>
-    <br>
-    <input type="text" placeholder="APELLIDO PATERNO">
-    <br>
-    <input type="text" placeholder="APELLIDO MATERNO">
-    <br>
-    <input type="text" placeholder="NOMBRE(S)">
-    <h2 class="titulo">Domicilio</h2>
-    <select name="municipio" id="municipio">
-        <option value="">Selecciona el municipio</option>
-        <option value="Amecameca">Amecameca</option>
-        <option value="Chalco">Chalco</option>
-        <option value="Cocotitlán">Cocotitlán</option>
-        <option value="Ixtapaluca">Ixtapaluca</option>
-        <option value="Juchitepec">Juchitepec</option>
-        <option value="Tlalmanalco">Tlalmanalco</option>
-        <option value="Temamatla">Temamatla</option>
-        <option value="Tenango del Aire">Tenango del Aire</option>
-        <option value="Valle de Chalco">Valle de Chalco</option>
-        <option value="Otro Municipio">Otro Municipio</option>
-    </select>
-    <br>
-    <input type="text" placeholder="CÓDIGO POSTAL">
-    <br>
-    <input type="text" placeholder="LOCALIDAD">
-    <br>
-    <input type="text" placeholder="CALLE">
-    <h2 class="titulo">Datos Padres de Familia o Tutor Legal</h2>
-    <input type="text" placeholder="NOMBRE COMPLETO DE LA MADRE">
-    <br>
-    <input type="text" placeholder="NÚMERO TELEFÓNICO DE LA MADRE">
-    <br>
-    <input type="text" placeholder="NOMBRE COMPLETO DEL PADRE">
-    <br>
-    <input type="text" placeholder="NÚMERO TELEFÓNICO DEL PADRE">
-    <br>
-    <button id="boton-finalizar" class="boton">Finalizar</button>
-</div>
+        <section id="docentes">
+            <h2>Docentes</h2>
+            <p>La preparatoria cuenta con un equipo de docentes altamente calificados y comprometidos con la educación de los estudiantes.</p>
+            <!-- Aquí puedes listar los docentes destacados -->
+        </section>
 
-<div class="reinscripcion-completada" id="reinscripcion-completada">Reinscripción Completada</div>
-<div class="reinscripcion-fallida" id="reinscripcion-fallida">Reinscripción Fallida</div>
+        <section id="personal">
+            <h2>Personal</h2>
+            <p>Además de los docentes, contamos con personal administrativo y de apoyo que contribuye al funcionamiento diario de la institución.</p>
+            <!-- Aquí puedes añadir información sobre el personal -->
+        </section>
 
-<script>
-    document.getElementById('boton-siguiente').addEventListener('click', function() {
-        var curp = document.querySelector('input[placeholder="CURP"]').value;
-        var email = document.querySelector('input[placeholder="Correo electrónico"]').value;
+        <section id="galeria">
+            <h2>Galería</h2>
+            <p>Explora nuestra galería de imágenes para conocer nuestras instalaciones y actividades.</p>
+            <!-- Aquí puedes añadir imágenes relacionadas -->
+        </section>
 
-        if (curp.length === 18 && email.includes('@')) {
-            document.getElementById('otra-pagina').style.display = 'block';
-        } else {
-            alert('Por favor, ingrese datos válidos para continuar.');
-        }
-    });
+        <section id="limpieza-seguridad">
+            <h2>Limpieza y Seguridad</h2>
+            <p>Nuestra prioridad es mantener un ambiente limpio y seguro para toda la comunidad educativa.</p>
+            <!-- Aquí puedes añadir información sobre medidas de limpieza y seguridad -->
+        </section>
 
-    document.getElementById('boton-finalizar').addEventListener('click', function() {
-        var inputs = document.querySelectorAll('#otra-pagina input, #otra-pagina select');
-        var completo = true;
+        <section id="uprez">
+            <h2>UPREZ</h2>
+            <p>La Preparatoria Núm. Oficial 344 "Mártires 68" forma parte de la Unidad de Educación Preparatoria por Cooperación UPREZ.</p>
+            <!-- Aquí puedes añadir más información sobre la UPREZ -->
+        </section>
 
-        inputs.forEach(function(input) {
-            if (input.value === '') {
-                completo = false;
-                return;
-            }
-        });
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <p>Puedes ponerte en contacto con nosotros a través de los siguientes medios:</p>
+            <ul>
+                <li>Teléfono: [Número de Teléfono]</li>
+                <li>Correo Electrónico: [Correo Electrónico]</li>
+                <li>Dirección: [Dirección]</li>
+            </ul>
+        </section>
+    </main>
 
-        if (completo) {
-            document.getElementById('reinscripcion-completada').style.display = 'block';
-            setTimeout(function() {
-                location.reload(); // Reiniciar la página después de 15 segundos
-            }, 15000);
-        } else {
-            document.getElementById('reinscripcion-fallida').style.display = 'block';
-        }
-    });
-</script>
-
+    <footer>
+        <p>Lema de la preparatoria: [Lema]</p>
+        <p>Dirección de la página: [Dirección de la Página]</p>
+    </footer>
 </body>
 </html>
-
