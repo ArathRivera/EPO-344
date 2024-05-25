@@ -13,6 +13,7 @@
             background-color: #3498db;
             padding: 20px;
             text-align: center;
+            position: relative;
         }
         .rectangulo {
             background-color: #3498db;
@@ -21,23 +22,21 @@
             position: relative;
         }
         .titulo-grande {
-            font-size: 28px;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-        .titulo-mediano {
             font-size: 24px;
             color: #fff;
             margin-bottom: 10px;
         }
         .subtitulo {
+            font-size: 18px;
             color: #fff;
             margin-bottom: 10px;
         }
         .imagen {
             width: 100px;
             height: 100px;
-            margin: 0 10px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
         }
         input[type="text"] {
             width: 200px;
@@ -64,19 +63,37 @@
             padding: 20px;
             text-align: center;
         }
+        .reinscripcion-completada, .reinscripcion-fallida {
+            display: none;
+            font-size: 24px;
+            color: #fff;
+            padding: 20px;
+            background-color: #2ecc71;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+        .reinscripcion-fallida {
+            background-color: #e74c3c;
+        }
+        .underline {
+            text-decoration: underline;
+            text-decoration-color: goldenrod;
+        }
     </style>
 </head>
 <body>
 
 <div class="menu">
     <div class="rectangulo">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdl6dWgNGtlAZdwPRNSQrwk65FGVZtvw94LCIErokNGw&s" alt="Imagen Izquierda" class="imagen">
         <span class="titulo-grande">ESCUELA PREPARATORIA OFICIAL 344</span>
         <br>
-        <span class="titulo-mediano">“MARTIRES DE 1968”</span>
+        <span class="subtitulo">“MARTIRES DE 1968”</span>
         <br>
         <span class="subtitulo">C.C.T. 15EBH0549B TURNO VESPERTINO</span>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdl6dWgNGtlAZdwPRNSQrwk65FGVZtvw94LCIErokNGw&s" alt="Imagen Derecha" class="imagen">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdl6dWgNGtlAZdwPRNSQrwk65FGVZtvw94LCIErokNGw&s" alt="Imagen Izquierda" class="imagen" style="left: 10px;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdl6dWgNGtlAZdwPRNSQrwk65FGVZtvw94LCIErokNGw&s" alt="Imagen Derecha" class="imagen" style="right: 10px;">
     </div>
     <input type="text" placeholder="CURP">
     <br>
@@ -86,8 +103,8 @@
 </div>
 
 <div class="otra-pagina" id="otra-pagina">
-    <h1 class="titulo-grande">Datos para la reinscripción del Alumn@</h1>
-    <h2 class="titulo-mediano">Datos del alumno</h2>
+    <h1 class="titulo-grande underline">Datos para la reinscripción del Alumn@</h1>
+    <h2 class="titulo-grande">Datos del alumno</h2>
     <input type="date" placeholder="Fecha">
     <br>
     <select name="semestre" id="semestre">
@@ -111,24 +128,23 @@
     <input type="text" placeholder="APELLIDO MATERNO">
     <br>
     <input type="text" placeholder="NOMBRE(S)">
-    <h2 class="titulo-mediano">Domicilio</h2>
+    <h2 class="titulo-grande">Domicilio</h2>
     <select name="municipio" id="municipio">
         <option value="">Selecciona el municipio</option>
         <option value="Ecatepec">Ecatepec</option>
         <option value="Nezahualcóyotl">Nezahualcóyotl</option>
         <option value="Toluca">Toluca</option>
-        <!-- Agrega más municipios según sea necesario -->
+        <!-- Agregar más municipios del Estado de México según sea necesario -->
     </select>
     <br>
     <select name="codigo-postal" id="codigo-postal">
         <option value="">Selecciona el código postal</option>
-        <!-- Los códigos postales se llenarán automáticamente según el municipio seleccionado -->
     </select>
     <br>
     <input type="text" placeholder="LOCALIDAD">
     <br>
     <input type="text" placeholder="CALLE">
-    <h2 class="titulo-mediano">Datos Padres de Familia o Tutor Legal</h2>
+    <h2 class="titulo-grande">Datos Padres de Familia o Tutor Legal</h2>
     <input type="text" placeholder="NOMBRE DE LA MADRE">
     <br>
     <input type="text" placeholder="NÚMERO TELEFÓNICO">
@@ -139,6 +155,9 @@
     <br>
     <button id="boton-finalizar" class="boton">Finalizar</button>
 </div>
+
+<div class="reinscripcion-completada" id="reinscripcion-completada">Reinscripción Completada</div>
+<div class="reinscripcion-fallida" id="reinscripcion-fallida">Reinscripción Fallida</div>
 
 <script>
     // Función para cargar los códigos postales según el municipio seleccionado
@@ -193,10 +212,10 @@
         });
 
         if (completo) {
-            alert('Reinscripción Completada');
+            document.getElementById('reinscripcion-completada').style.display = 'block';
             // Aquí debería implementarse la redirección al menú principal
         } else {
-            alert('Reinscripción Fallida');
+            document.getElementById('reinscripcion-fallida').style.display = 'block';
         }
     });
 </script>
