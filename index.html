@@ -173,10 +173,9 @@
 
         if (completo) {
             document.getElementById('reinscripcion-completada').style.display = 'block';
-            // Cerrar la página después de mostrar el mensaje de "Reinscripción Completada"
             setTimeout(function() {
-                window.close();
-            }, 3000); // Cierra la página después de 3 segundos
+                location.reload(); // Reiniciar la página después de 15 segundos
+            }, 15000);
         } else {
             document.getElementById('reinscripcion-fallida').style.display = 'block';
         }
@@ -185,3 +184,4 @@
 
 </body>
 </html>
+
