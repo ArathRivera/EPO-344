@@ -1,84 +1,166 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Escuela Preparatoria Oficial 344 "Mártires del 1968"</title>
-  <style>
-    body {
-      background-color: #ffffcc; /* Fondo amarillo */
-      font-family: "Arial", sans-serif; /* Fuente bonita */
-      font-weight: bold; /* Texto en negrita */
-      text-align: justify; /* Formato justificado */
-      line-height: 1.5; /* Interlineado */
-    }
-    #rectangulo {
-      background-color: #3399ff; /* Azul */
-      color: white; /* Texto blanco */
-      text-align: center; /* Centrado */
-      padding: 20px; /* Espaciado interno */
-    }
-    .menu {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px 20px;
-      background-color: #4CAF50; /* Verde */
-      color: white; /* Texto blanco */
-      cursor: pointer; /* Cambia el cursor al pasar */
-    }
-    .menu:hover {
-      background-color: #45a049; /* Verde más oscuro al pasar */
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escuela Preparatoria Oficial 344</title>
+    <style>
+        body {
+            background-color: #FFFFCC;
+            font-family: 'Georgia', serif;
+            line-height: 1.5;
+            color: #000000;
+        }
+        .header {
+            background-color: #0000FF;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+        .header img {
+            max-width: 100%;
+            height: auto;
+        }
+        .header h1 {
+            font-size: 2em;
+            margin: 10px 0;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        nav button {
+            background-color: #FFFFFF;
+            color: #0000FF;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        nav button:hover {
+            background-color: #DDD;
+            transform: scale(1.1);
+            transition: transform 0.3s;
+        }
+        section {
+            padding: 20px;
+            text-align: justify;
+        }
+        .gallery img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #0000FF;
+            color: #FFFFFF;
+        }
+    </style>
 </head>
 <body>
 
-<div id="rectangulo">
-  <h1>ESCUELA PREPARATORIA OFICIAL 344</h1>
-  <p>MARTIRES DEL 1968</p>
-  <p>C.C.T. 15EBH0549B TURNO VESPERTINO</p>
-  <div>
-    <div class="menu">NUESTRA ESCUELA</div>
-    <div class="menu">DOCENTES</div>
-    <div class="menu">UPREZ</div>
-    <div class="menu">INFORMACIÓN DE CONTACTO DE LA ESCUELA</div>
-  </div>
-</div>
+    <div class="header">
+        <img src="https://www.elfinanciero.com.mx/resizer/9OCNcY6h6z9e3M3Y21gSkSHc1C4=/arc-photo-elfinanciero/arc2-prod/public/Y5FKXUEDYBCIXAE6O2RWAGPVKQ.jpg" alt="Imagen de la Biblioteca Central UNAM">
+        <h1>ESCUELA PREPARATORIA OFICIAL 344. MARTIRES DEL 1968.<br>C.C.T. 15EBH0549B TURNO VESPERTINO</h1>
+        <nav>
+            <button onclick="document.getElementById('nuestraEscuela').scrollIntoView();">NUESTRA ESCUELA</button>
+            <button onclick="document.getElementById('nuestrosDocentes').scrollIntoView();">NUESTROS DOCENTES</button>
+            <button onclick="document.getElementById('uprez').scrollIntoView();">LA “UPREZ”</button>
+            <button onclick="document.getElementById('galeria').scrollIntoView();">GALERIA</button>
+            <button onclick="document.getElementById('contacto').scrollIntoView();">INFORMACIÓN DE CONTACTO</button>
+        </nav>
+    </div>
 
-<div>
-  <h2>NUESTRA ESCUELA</h2>
-  <p><strong>Apertura</strong></p>
-  <p>Se fundó con el objetivo de que la comunidad de Tlapala tuviera una mejor educación para sus jóvenes. Si bien las instalaciones son prestadas por la Escuela Telesecundaria Emiliano Zapata Salazar, La Directora Susana Díaz Reyes, lucha día con día por la construcción del edificio. Esto es un proyecto de la comunidad.</p>
-  <p><strong>Lema</strong></p>
-  <p>“Yo quiero para mis alumnos, lo mismos que quiero para mis hijos” <br> Profesor: Ezequiel Fredi Ocampo Landa</p>
-</div>
+    <section id="nuestraEscuela">
+        <h2>Nuestra Escuela</h2>
+        <p>
+            <strong>Información Básica</strong><br>
+            EPOEM 344 - Escuela Preparatoria Oficial Núm. 344<br>
+            Público<br>
+            Media Superior<br>
+            Bachillerato<br>
+            Bachillerato General<br>
+            Ref: Media Superior en Chalco<br>
+            CCT (Clave de Centro de Trabajo): 15EBH0549B<br>
+            Zona: Urbano<br>
+            Turno: Vespertino<br>
+            Estado: Activo (2023)
+        </p>
+        <p>
+            <strong>Apertura</strong><br>
+            Se fundó con el objetivo de que la comunidad de Tlapala tuviera una mejor educación para sus jóvenes.
+            Si bien las instalaciones son prestadas por la Escuela Telesecundaria Emiliano Zapata Salazar, La Directora Susana Díaz Reyes, lucha día con día por la construcción del edificio.
+            Esto es un proyecto de la comunidad.
+        </p>
+        <p>
+            <strong>Lema</strong><br>
+            “Yo quiero para mis alumnos, lo mismos que quiero para mis hijos”<br>
+            Profesor: Ezequiel Fredi Ocampo Landa
+        </p>
+    </section>
 
-<div>
-  <h2>DOCENTES</h2>
-  <ul>
-    <!-- Lista de docentes -->
-    <li>Aguilar Ríos José Juan</li>
-    <li>Barrera Díaz José</li>
-    <li>Barrera Díaz Nathaly (Orientadora de Terceros)</li>
-    <!-- Añade el resto de docentes aquí -->
-  </ul>
-</div>
+    <section id="nuestrosDocentes">
+        <h2>Nuestros Docentes</h2>
+        <ul>
+            <li>Aguilar Ríos José Juan</li>
+            <li>Barrera Díaz José</li>
+            <li>Barrera Díaz Nathaly (Orientadora de Terceros)</li>
+            <li>Barrera Hernández Helio</li>
+            <li>Cervantes Jaime Áaron (Secretario)</li>
+            <li>Díaz Reyes Susana (Directora Escolar)</li>
+            <li>Franco Higuera Wendy Maricruz</li>
+            <li>Galicia Aguilar Jaqueline</li>
+            <li>Gonzaga Corrales Maximino Javier</li>
+            <li>Gutierrez Mártinez Mario Gerardo</li>
+            <li>Leal Ramirez Olivia (Orientadora de Primeros)</li>
+            <li>Maestra Arcelia (Administrativa)</li>
+            <li>Maestra Daniela (Orientadora de Segundos)</li>
+            <li>Mártinez Alarcón Manuel Alejandro</li>
+            <li>Mejorada Fernandez Alma Delfina</li>
+            <li>Mora Medina Karla</li>
+            <li>Neri Perez Gloria</li>
+            <li>Reyes Pérez Josefina</li>
+            <li>Sánchez Vergara Lizbeth</li>
+            <li>Sánchez Vergara Willi</li>
+            <li>Varela Rivera Maria de los Angele</li>
+        </ul>
+    </section>
 
-<div>
-  <h2>UPREZ</h2>
-  <p>La Unión Popular Revolucionaria Emiliano Zapata (Uprez) fundada el 1 de Febrero de 1987. Tiene como objetivo formar una organización frentista que ayude a la transformación del país. Poner en práctica el Derecho a la Ciudad y la Defensa del Territorio. Esta institución no solo ayudó a la fundación de la EPO 344 “Mártires de 1968”, ya que como esta han fundado muchas escuelas más.</p>
-</div>
+    <section id="uprez">
+        <h2>LA “UPREZ”</h2>
+        <p>
+            La Unión Popular Revolucionaria Emiliano Zapata (Uprez) fundada el 1 de Febrero de 1987. Tiene como objetivo formar una organización frentista que ayude a la transformación del país.
+            Poner en práctica el Derecho a la Ciudad y la Defensa del Territorio.
+            Esta institución no solo ayudó a la fundación de la EPO 344 “Mártires de 1968”, ya que como esta han fundado muchas escuelas más.
+        </p>
+    </section>
 
-<div>
-  <h2>INFORMACIÓN DE CONTACTO DE LA ESCUELA</h2>
-  <p><strong>Dirección:</strong> Calle Prolongación Manuel Hernández #1 La Candelaria Tlapala, Municipio de Chalco C.P. 56641</p>
-  <p><strong>Teléfono:</strong> 55 5982 1169</p>
-  <p><strong>Correo Electrónico:</strong> preparatory344@gmail.com</p>
-</div>
+    <section id="galeria" class="gallery">
+        <h2>Galería</h2>
+        <p>Nuestra Institución y alumnos</p>
+        <img src="imagen1.jpg" alt="Foto grupal de estudiantes">
+        <img src="imagen2.jpg" alt="Estudiantes en desfile">
+    </section>
 
-<footer>
-  <p>(CREADO POR RIVERA NAVARRO (JAROSLAW))</p>
-</footer>
+    <section id="contacto">
+        <h2>Información de Contacto</h2>
+        <p>
+            Dirección: Calle Prolongación Manuel Hernández #1 La Candelaria Tlapala, Municipio de Chalco C.P. 56641<br>
+            Teléfono: 55 5982 1169<br>
+            Correo Electrónico: preparatory344@gmail.com
+        </p>
+    </section>
+
+    <footer>
+        <p>CREADO POR RIVERA NAVARRO (JAROSLAW)</p>
+    </footer>
 
 </body>
 </html>
